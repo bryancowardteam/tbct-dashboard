@@ -20,11 +20,8 @@
     body { background: var(--bg); color: var(--white); font-family: 'Poppins', sans-serif; font-weight: 300; min-height: 100vh; }
 
     /* HEADER */
-    header { background: var(--bg-darker); border-bottom: 1px solid var(--border); padding: 24px 40px; display: flex; align-items: center; justify-content: space-between; }
-    .logo { display: inline-flex; flex-direction: column; align-items: center; border: 1.5px solid var(--white); padding: 10px 18px; gap: 2px; }
-    .logo-the { font-size: 10px; font-weight: 300; letter-spacing: 0.25em; text-transform: uppercase; }
-    .logo-name { font-size: 20px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; line-height: 1.15; }
-    .logo-team { font-size: 10px; font-weight: 300; letter-spacing: 0.35em; text-transform: uppercase; }
+    header { background: var(--bg-darker); border-bottom: 1px solid var(--border); padding: 20px 40px; display: flex; align-items: center; justify-content: space-between; }
+    .logo-img { height: 72px; width: auto; display: block; }
     .header-right { text-align: right; }
     .header-title { font-size: 18px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; }
     .last-updated { font-size: 11px; color: var(--grey); margin-top: 5px; }
@@ -126,17 +123,14 @@
       .cards-grid { grid-template-columns: 1fr; }
       .stats-bar { flex-wrap: wrap; gap: 16px; }
       .stat { border-right: none; padding-right: 0; margin-right: 0; }
+      .logo-img { height: 56px; }
     }
   </style>
 </head>
 <body>
 
 <header>
-  <div class="logo">
-    <div class="logo-the">The</div>
-    <div class="logo-name">Bryan Coward</div>
-    <div class="logo-team">Team</div>
-  </div>
+  <img src="tbct-logo.png" alt="The Bryan Coward Team" class="logo-img">
   <div class="header-right">
     <div class="header-title">Command Center</div>
     <div class="last-updated" id="lastUpdated">Loading...</div>
