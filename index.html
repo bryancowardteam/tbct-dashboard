@@ -8,28 +8,29 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --black: #000000;
       --navy: #0D2C4C;
-      --grey: #4c4c4d;
+      --navy-hover: #1a4a7c;
+      --bg: #F0F2F5;
       --white: #FFFFFF;
-      --card-bg: #0a0a0a;
-      --border: rgba(255,255,255,0.1);
+      --text: #1a1a2e;
+      --muted: #6b7280;
+      --border: #dde1e7;
     }
-    body { background: var(--black); color: var(--white); font-family: 'Poppins', sans-serif; font-weight: 300; min-height: 100vh; }
+    body { background: var(--bg); color: var(--text); font-family: 'Poppins', sans-serif; font-weight: 300; min-height: 100vh; }
 
     /* HEADER */
-    header { background: var(--black); border-bottom: 1px solid var(--border); padding: 24px 40px; display: flex; align-items: center; justify-content: space-between; }
-    .logo-img { height: 72px; width: auto; display: block; }
+    header { background: var(--navy); padding: 20px 40px; display: flex; align-items: center; justify-content: space-between; }
+    .logo-img { height: 64px; width: auto; display: block; }
     .header-right { text-align: right; }
-    .header-title { font-size: 18px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; }
-    .last-updated { font-size: 11px; color: var(--grey); margin-top: 5px; }
+    .header-title { font-size: 18px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: #fff; }
+    .last-updated { font-size: 11px; color: rgba(255,255,255,0.6); margin-top: 5px; }
 
     /* TABS */
-    nav { background: var(--black); border-bottom: 1px solid var(--border); padding: 0 40px; display: flex; }
-    .tab-btn { background: none; border: none; color: var(--grey); font-family: 'Poppins', sans-serif; font-size: 12px; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; padding: 16px 22px; cursor: pointer; border-bottom: 2px solid transparent; transition: all 0.2s; position: relative; top: 1px; }
-    .tab-btn:hover { color: var(--white); }
-    .tab-btn.active { color: var(--white); border-bottom-color: var(--white); }
-    .tab-count { background: var(--navy); color: var(--white); font-size: 10px; padding: 2px 7px; border-radius: 10px; margin-left: 6px; }
+    nav { background: var(--white); border-bottom: 1px solid var(--border); padding: 0 40px; display: flex; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+    .tab-btn { background: none; border: none; color: var(--muted); font-family: 'Poppins', sans-serif; font-size: 12px; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; padding: 16px 22px; cursor: pointer; border-bottom: 2px solid transparent; transition: all 0.2s; position: relative; top: 1px; }
+    .tab-btn:hover { color: var(--navy); }
+    .tab-btn.active { color: var(--navy); border-bottom-color: var(--navy); font-weight: 500; }
+    .tab-count { background: var(--navy); color: #fff; font-size: 10px; padding: 2px 7px; border-radius: 10px; margin-left: 6px; }
 
     /* MAIN */
     main { padding: 32px 40px; max-width: 1440px; margin: 0 auto; }
@@ -41,76 +42,76 @@
     .stat { padding: 0 28px 0 0; margin-right: 28px; border-right: 1px solid var(--border); }
     .stat:first-child { padding-left: 0; }
     .stat:last-child { border-right: none; }
-    .stat-value { font-size: 26px; font-weight: 600; line-height: 1; }
-    .stat-label { font-size: 10px; color: var(--grey); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 4px; }
+    .stat-value { font-size: 26px; font-weight: 600; line-height: 1; color: var(--navy); }
+    .stat-label { font-size: 10px; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; margin-top: 4px; }
 
     /* FILTERS */
     .filter-bar { display: flex; gap: 6px; margin-bottom: 20px; align-items: center; flex-wrap: wrap; }
-    .filter-label { font-size: 10px; color: var(--grey); letter-spacing: 0.1em; text-transform: uppercase; margin-right: 4px; }
-    .filter-btn { background: none; border: 1px solid var(--border); color: var(--grey); font-family: 'Poppins', sans-serif; font-size: 11px; font-weight: 400; letter-spacing: 0.05em; text-transform: uppercase; padding: 5px 12px; border-radius: 2px; cursor: pointer; transition: all 0.2s; }
-    .filter-btn:hover { border-color: rgba(255,255,255,0.35); color: var(--white); }
-    .filter-btn.active { background: var(--navy); border-color: var(--navy); color: var(--white); }
+    .filter-label { font-size: 10px; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; margin-right: 4px; }
+    .filter-btn { background: var(--white); border: 1px solid var(--border); color: var(--muted); font-family: 'Poppins', sans-serif; font-size: 11px; font-weight: 400; letter-spacing: 0.05em; text-transform: uppercase; padding: 5px 12px; border-radius: 4px; cursor: pointer; transition: all 0.2s; }
+    .filter-btn:hover { border-color: var(--navy); color: var(--navy); }
+    .filter-btn.active { background: var(--navy); border-color: var(--navy); color: #fff; }
 
     /* CARDS GRID */
     .cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 14px; }
 
     /* CARD */
-    .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 2px; padding: 20px; cursor: pointer; transition: all 0.2s; position: relative; }
-    .card:hover { border-color: rgba(255,255,255,0.25); background: #111; }
+    .card { background: var(--white); border: 1px solid var(--border); border-radius: 6px; padding: 20px; cursor: pointer; transition: all 0.2s; position: relative; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+    .card:hover { border-color: var(--navy); box-shadow: 0 4px 12px rgba(13,44,76,0.1); }
     .card.hidden { display: none; }
     .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
-    .card-address { font-size: 14px; font-weight: 500; line-height: 1.3; flex: 1; padding-right: 10px; }
-    .card-city { font-size: 11px; color: var(--grey); margin-top: 2px; font-weight: 300; }
+    .card-address { font-size: 14px; font-weight: 600; line-height: 1.3; flex: 1; padding-right: 10px; color: var(--text); }
+    .card-city { font-size: 11px; color: var(--muted); margin-top: 2px; font-weight: 300; }
     .card-badges { display: flex; flex-direction: column; gap: 4px; align-items: flex-end; flex-shrink: 0; }
-    .badge { font-size: 10px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; padding: 3px 8px; border-radius: 2px; white-space: nowrap; }
+    .badge { font-size: 10px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; padding: 3px 8px; border-radius: 4px; white-space: nowrap; }
     .badge-listing { background: var(--navy); color: #fff; }
-    .badge-buyer { background: #112211; color: #81c784; border: 1px solid #1e3d1e; }
-    .badge-active { background: rgba(13,44,76,0.6); color: #90caf9; border: 1px solid #1a3a5c; }
-    .badge-pending { background: #2a1e00; color: #ffd54f; border: 1px solid #4d3800; }
-    .badge-cancelled { background: #2a0000; color: #ef9a9a; border: 1px solid #4d0000; }
-    .badge-closed { background: #1a1a1a; color: #757575; border: 1px solid #2d2d2d; }
-    .badge-new-construction { background: #1a0a3d; color: #ce93d8; border: 1px solid #3d1a5a; }
-    .badge-office-exclusive { background: #2a1800; color: #ffcc80; border: 1px solid #5a3200; }
-    .card-price { font-size: 20px; font-weight: 600; margin: 10px 0 6px; }
-    .card-meta { font-size: 12px; color: var(--grey); line-height: 1.7; }
+    .badge-buyer { background: #dcfce7; color: #166534; border: 1px solid #bbf7d0; }
+    .badge-active { background: #dbeafe; color: #1e40af; border: 1px solid #bfdbfe; }
+    .badge-pending { background: #fef9c3; color: #854d0e; border: 1px solid #fef08a; }
+    .badge-cancelled { background: #fee2e2; color: #991b1b; border: 1px solid #fecaca; }
+    .badge-closed { background: #f3f4f6; color: #4b5563; border: 1px solid #e5e7eb; }
+    .badge-new-construction { background: #f3e8ff; color: #6b21a8; border: 1px solid #e9d5ff; }
+    .badge-office-exclusive { background: #fff7ed; color: #9a3412; border: 1px solid #fed7aa; }
+    .card-price { font-size: 20px; font-weight: 600; margin: 10px 0 6px; color: var(--navy); }
+    .card-meta { font-size: 12px; color: var(--muted); line-height: 1.7; }
     .expand-area { margin-top: 14px; border-top: 1px solid var(--border); padding-top: 14px; display: none; }
     .card.expanded .expand-area { display: block; }
     .expand-row { display: flex; gap: 8px; margin-bottom: 5px; font-size: 12px; }
-    .expand-lbl { color: var(--grey); min-width: 90px; flex-shrink: 0; font-weight: 300; }
-    .expand-val { color: var(--white); }
-    .expand-link { display: inline-block; margin-top: 8px; font-size: 11px; color: #64b5f6; text-decoration: none; letter-spacing: 0.04em; }
-    .expand-link:hover { color: #90caf9; }
-    .chevron { position: absolute; bottom: 12px; right: 16px; font-size: 14px; color: var(--grey); transition: transform 0.2s; }
+    .expand-lbl { color: var(--muted); min-width: 90px; flex-shrink: 0; font-weight: 300; }
+    .expand-val { color: var(--text); }
+    .expand-link { display: inline-block; margin-top: 8px; font-size: 11px; color: var(--navy); text-decoration: none; letter-spacing: 0.04em; font-weight: 500; }
+    .expand-link:hover { color: var(--navy-hover); text-decoration: underline; }
+    .chevron { position: absolute; bottom: 12px; right: 16px; font-size: 14px; color: var(--muted); transition: transform 0.2s; }
     .card.expanded .chevron { transform: rotate(180deg); }
 
     /* EVENTS */
     .events-list { display: flex; flex-direction: column; gap: 10px; }
-    .ev-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 2px; padding: 18px 22px; display: flex; align-items: flex-start; gap: 20px; transition: all 0.2s; }
-    .ev-card:hover { border-color: rgba(255,255,255,0.25); background: #111; }
+    .ev-card { background: var(--white); border: 1px solid var(--border); border-radius: 6px; padding: 18px 22px; display: flex; align-items: flex-start; gap: 20px; transition: all 0.2s; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+    .ev-card:hover { border-color: var(--navy); box-shadow: 0 4px 12px rgba(13,44,76,0.1); }
     .ev-card.hidden { display: none; }
-    .ev-date { text-align: center; min-width: 50px; background: var(--navy); padding: 8px 10px; border-radius: 2px; }
-    .ev-month { font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.65); }
-    .ev-day { font-size: 22px; font-weight: 700; line-height: 1.1; }
+    .ev-date { text-align: center; min-width: 50px; background: var(--navy); padding: 8px 10px; border-radius: 6px; }
+    .ev-month { font-size: 9px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.75); }
+    .ev-day { font-size: 22px; font-weight: 700; line-height: 1.1; color: #fff; }
     .ev-info { flex: 1; }
-    .ev-title { font-size: 14px; font-weight: 500; margin-bottom: 5px; }
-    .ev-time { font-size: 12px; color: var(--grey); margin-bottom: 3px; }
-    .ev-loc { font-size: 12px; color: var(--grey); }
+    .ev-title { font-size: 14px; font-weight: 500; margin-bottom: 5px; color: var(--text); }
+    .ev-time { font-size: 12px; color: var(--muted); margin-bottom: 3px; }
+    .ev-loc { font-size: 12px; color: var(--muted); }
 
     /* MARKETING */
-    .mk-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 2px; padding: 20px; margin-bottom: 10px; cursor: pointer; transition: all 0.2s; }
-    .mk-card:hover { border-color: rgba(255,255,255,0.25); background: #111; }
+    .mk-card { background: var(--white); border: 1px solid var(--border); border-radius: 6px; padding: 20px; margin-bottom: 10px; cursor: pointer; transition: all 0.2s; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+    .mk-card:hover { border-color: var(--navy); box-shadow: 0 4px 12px rgba(13,44,76,0.1); }
     .mk-card.hidden { display: none; }
     .mk-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 6px; gap: 12px; }
-    .mk-title { font-size: 14px; font-weight: 500; }
-    .mk-meta { font-size: 12px; color: var(--grey); }
-    .badge-complete { background: #0d2c0d; color: #81c784; border: 1px solid #1e5c1e; }
-    .badge-in-progress { background: #0d1f2c; color: #64b5f6; border: 1px solid #1a3a5c; }
-    .badge-review { background: #2c1e0d; color: #ffcc80; border: 1px solid #5c3a1a; }
-    .mk-notes { font-size: 12px; color: rgba(255,255,255,0.55); line-height: 1.7; display: none; margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border); }
+    .mk-title { font-size: 14px; font-weight: 500; color: var(--text); }
+    .mk-meta { font-size: 12px; color: var(--muted); }
+    .badge-complete { background: #dcfce7; color: #166534; border: 1px solid #bbf7d0; }
+    .badge-in-progress { background: #dbeafe; color: #1e40af; border: 1px solid #bfdbfe; }
+    .badge-review { background: #fef9c3; color: #854d0e; border: 1px solid #fef08a; }
+    .mk-notes { font-size: 12px; color: var(--muted); line-height: 1.7; display: none; margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border); }
     .mk-card.expanded .mk-notes { display: block; }
 
     /* EMPTY */
-    .empty { text-align: center; padding: 60px 20px; color: var(--grey); font-size: 13px; letter-spacing: 0.05em; }
+    .empty { text-align: center; padding: 60px 20px; color: var(--muted); font-size: 13px; letter-spacing: 0.05em; }
 
     @media (max-width: 768px) {
       header { padding: 16px 20px; flex-direction: column; gap: 16px; text-align: center; }
@@ -127,10 +128,10 @@
 <body>
 
 <header>
-  <img src="tbct-logo.png" alt="The Bryan Coward Team" class="logo-img">
+  <img src="BryanCoward_Logo_Ver_White.png" alt="The Bryan Coward Team" class="logo-img">
   <div class="header-right">
     <div class="header-title">Command Center</div>
-    <div class="last-updated" id="lastUpdated">Loading...</div>
+    <div class="last-updated" id="lastUpdated"></div>
   </div>
 </header>
 
@@ -187,7 +188,37 @@
 </main>
 
 <script>
-  // --- TAB SWITCHING ---
+  // DATA embedded directly -- no fetch() dependency
+  const DATA = {
+    lastUpdated: "2026-05-25T07:00:00",
+    transactions: [
+      { address: "7237 Winchester Dr", city: "", type: "Listing", status: "Active", price: null, mls: null, details: null, clients: null, phone: null, email: null, closeDate: null, expiry: null, lender: null, title: null, trelloUrl: null },
+      { address: "3078 Eastland Blvd #401", city: "", type: "Listing", status: "Pending", price: null, mls: null, details: null, clients: null, phone: null, email: null, closeDate: null, expiry: null, lender: null, title: null, trelloUrl: null },
+      { address: "6617 Thoroughbred Loop", city: "Odessa, FL 33556", type: "Listing", status: "Pending", price: 800000, mls: "TB8478588", details: "4 Bed / 2 Ba | Single Family Residence", clients: "Sarah and Tom Glenz", phone: "(813) 951-8581", email: "saglenz1@gmail.com", closeDate: null, expiry: "2026-09-30", lender: null, title: null, trelloUrl: "https://trello.com/c/NTw3Qiwp/256-listing-6617-thoroughbred-loop-odessa-fl-33556" },
+      { address: "6426 Grapewood Rd", city: "Spring Hill, FL 34609", type: "Buyer", status: "Pending", price: 440000, mls: "TB8487692", details: null, clients: "Jeff & Joyce Giambrone", phone: "(630) 379-9099", email: "jeff.giambrone@gmail.com", closeDate: "2026-06-02", expiry: null, lender: "Brian McGlone", title: "Sunbelt Title Westshore", trelloUrl: "https://trello.com/c/NpYZKVj4/304-6426-grapewood-rd-spring-hill-fl-34609" },
+      { address: "5648 33rd Ave N", city: "St. Petersburg, FL 33710", type: "Listing", status: "Pending", price: null, mls: null, details: null, clients: null, phone: null, email: null, closeDate: null, expiry: null, lender: null, title: null, trelloUrl: null },
+      { address: "9170 Lakechase Island Way", city: "Tampa, FL 33626", type: "Listing", status: "Pending", price: 150000, mls: null, details: "1 Bed / 1 Ba | Condominium", clients: "Mary Rodriguez & Jose Rodriguez", phone: "(813) 263-5529", email: "marytoaol@gmail.com", closeDate: "2026-06-30", expiry: "2026-08-31", lender: null, title: null, trelloUrl: "https://trello.com/c/OuVqwNtE/208-listing-9170-lakechase-island-way-tampa-fl-33626" }
+    ],
+    events: [
+      { title: "TBCT Stand Up", start: "2026-05-26", time: "8:30 AM - 9:00 AM", location: "Zoom" },
+      { title: "Consulting Rebecca/EJ", start: "2026-05-27", time: "11:00 AM - 12:00 PM", location: "Google Meet" },
+      { title: "Ice Cream Social", start: "2026-05-29", time: "3:30 PM - 6:00 PM", location: "" },
+      { title: "36-Touch Weekly Meeting", start: "2026-06-01", time: "1:00 PM - 1:30 PM", location: "Zoom" },
+      { title: "Consulting Rebecca/EJ", start: "2026-06-03", time: "11:00 AM - 12:00 PM", location: "Google Meet" },
+      { title: "36-Touch Weekly Meeting", start: "2026-06-08", time: "1:00 PM - 1:30 PM", location: "Zoom" }
+    ],
+    marketingRequests: [
+      { title: "Ice Cream Social 8.5x11 Printable", status: "complete", statusLabel: "Complete", requestedBy: "Bryan", date: "May 22, 2026", notes: "Bryan requested an 8.5x11 with 2 designs for printing. Sarah delivered the PDF same day." },
+      { title: "Ice Cream Social Flip Side", status: "in-progress", statusLabel: "In Progress", requestedBy: "Bryan", date: "May 20, 2026", notes: "Bryan asked for a reverse/flip side so the piece can be printed double-sided. Sarah confirmed." },
+      { title: "Add Intro Slide to Cancels/Expired Presentation", status: "in-progress", statusLabel: "In Progress", requestedBy: "Bryan", date: "May 19, 2026", notes: "Bryan requested a new bio/Q&A intro slide added to the cancels and expired presentation after the TC PA slide." },
+      { title: "Add Ice Cream Social Slide to WBN Slides", status: "in-progress", statusLabel: "In Progress", requestedBy: "Bryan", date: "May 19, 2026", notes: "Bryan asked Sarah to add the ice cream social slide to the end of the WBN slides. Sarah confirmed." },
+      { title: "Add Ice Cream Social Slide to Rotary Classification", status: "in-progress", statusLabel: "In Progress", requestedBy: "Bryan", date: "May 18, 2026", notes: "Bryan asked for a slide about the Ice Cream Social to be added to the Rotary Classification deck." },
+      { title: "New Shorter Pre-Listing Pack", status: "in-progress", statusLabel: "In Progress", requestedBy: "Bryan", date: "May 18, 2026", notes: "Bryan asked Sarah to create a shorter Pre-Listing Pack based on the 2026 copy. Sarah confirmed." },
+      { title: "Recreate Graphic with TBCT Logo", status: "in-progress", statusLabel: "In Progress", requestedBy: "Bryan", date: "May 15, 2026", notes: "Bryan shared a screenshot and asked Sarah to recreate it with the TBCT logo. Sarah confirmed, no delivery shown yet." },
+      { title: "Park Bench Sign + WOW Ad Designs", status: "complete", statusLabel: "Complete", requestedBy: "Bryan", date: "May 14, 2026", notes: "Sarah delivered Park Bench Sign, Ice Cream Social materials, Allora May Postcard, WOW Ad, and WOW Ad 450x450px. Bryan approved." }
+    ]
+  };
+
   function switchTab(btn) {
     document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
     document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
@@ -195,7 +226,6 @@
     document.getElementById('pane-' + btn.dataset.tab).classList.add('active');
   }
 
-  // --- FILTER ---
   function filterCards(btn, cls, type) {
     btn.closest('.filter-bar').querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
@@ -224,11 +254,8 @@
     });
   }
 
-  // --- TOGGLE EXPAND ---
   function toggle(el) { el.classList.toggle('expanded'); }
-
-  // --- FORMAT ---
-  function fmtPrice(n) { return n ? '$' + Number(n).toLocaleString() : 'N/A'; }
+  function fmtPrice(n) { return n ? '$' + Number(n).toLocaleString() : null; }
   function fmtDate(d) { if (!d) return null; return new Date(d + 'T12:00:00').toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }); }
   function badgeCls(status) {
     const s = (status || '').toLowerCase();
@@ -238,10 +265,9 @@
     if (s === 'closed') return 'badge-closed';
     if (s.includes('construction')) return 'badge-new-construction';
     if (s.includes('exclusive')) return 'badge-office-exclusive';
-    return 'badge-active';
+    return 'badge-pending';
   }
 
-  // --- RENDER TRANSACTIONS ---
   function renderTx(txs) {
     document.getElementById('txCount').textContent = txs.length;
     const listings = txs.filter(t => t.type === 'Listing').length;
@@ -249,35 +275,33 @@
     const active = txs.filter(t => t.status === 'Active').length;
     const vol = txs.reduce((s, t) => s + (t.price || 0), 0);
     document.getElementById('txStats').innerHTML =
-      stat(txs.length, 'Total') + div() + stat(listings, 'Listings') + div() +
-      stat(buyers, 'Buyers') + div() + stat(active, 'Active') + div() +
-      stat(fmtPrice(vol), 'Total Volume');
+      stat(txs.length,'Total') + stat(listings,'Listings') +
+      stat(buyers,'Buyers') + stat(active,'Active') +
+      stat(vol ? fmtPrice(vol) : 'N/A','Volume Known');
     document.getElementById('txCards').innerHTML = txs.map(t => `
       <div class="card tx-card" data-type="${t.type}" data-status="${t.status}" onclick="toggle(this)">
         <div class="card-header">
-          <div><div class="card-address">${t.address}</div><div class="card-city">${t.city}</div></div>
+          <div><div class="card-address">${t.address}</div>${t.city ? `<div class="card-city">${t.city}</div>` : ''}</div>
           <div class="card-badges">
             <span class="badge badge-${t.type.toLowerCase()}">${t.type}</span>
             <span class="badge ${badgeCls(t.status)}">${t.status}</span>
           </div>
         </div>
-        <div class="card-price">${fmtPrice(t.price)}</div>
+        ${t.price ? `<div class="card-price">${fmtPrice(t.price)}</div>` : ''}
         <div class="card-meta">${[t.details, t.clients ? 'Client: ' + t.clients : ''].filter(Boolean).join('<br>')}</div>
         <div class="expand-area">
-          ${row('MLS', t.mls)}${row('Clients', t.clients)}${row('Phone', t.phone)}
-          ${row('Email', t.email)}${row('Close Date', fmtDate(t.closeDate))}
-          ${row('Listing Exp', fmtDate(t.expiry))}${row('Lender', t.lender)}
-          ${row('Title', t.title)}
+          ${row('MLS',t.mls)}${row('Clients',t.clients)}${row('Phone',t.phone)}
+          ${row('Email',t.email)}${row('Close Date',fmtDate(t.closeDate))}
+          ${row('Listing Exp',fmtDate(t.expiry))}${row('Lender',t.lender)}
+          ${row('Title',t.title)}
           ${t.trelloUrl ? `<a class="expand-link" href="${t.trelloUrl}" target="_blank">View in Trello &rarr;</a>` : ''}
         </div>
         <div class="chevron">&#9662;</div>
       </div>`).join('');
   }
-  function stat(v, l) { return `<div class="stat"><div class="stat-value">${v}</div><div class="stat-label">${l}</div></div>`; }
-  function div() { return ''; }
-  function row(lbl, val) { return val ? `<div class="expand-row"><span class="expand-lbl">${lbl}</span><span class="expand-val">${val}</span></div>` : ''; }
+  function stat(v,l) { return `<div class="stat"><div class="stat-value">${v}</div><div class="stat-label">${l}</div></div>`; }
+  function row(lbl,val) { return val ? `<div class="expand-row"><span class="expand-lbl">${lbl}</span><span class="expand-val">${val}</span></div>` : ''; }
 
-  // --- RENDER EVENTS ---
   function renderEv(evs) {
     document.getElementById('evCount').textContent = evs.length;
     document.getElementById('evList').innerHTML = evs.length ? evs.map(e => {
@@ -296,7 +320,6 @@
     }).join('') : '<div class="empty">No upcoming events</div>';
   }
 
-  // --- RENDER MARKETING ---
   function renderMk(mks) {
     document.getElementById('mkCount').textContent = mks.length;
     document.getElementById('mkList').innerHTML = mks.map(m => `
@@ -310,19 +333,15 @@
       </div>`).join('');
   }
 
-  // --- LOAD ---
-  fetch('data.json?v=' + Date.now())
-    .then(r => r.json())
-    .then(d => {
-      const ts = new Date(d.lastUpdated);
-      document.getElementById('lastUpdated').textContent =
-        'Updated ' + ts.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}) +
-        ' at ' + ts.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',hour12:true});
-      renderTx(d.transactions || []);
-      renderEv(d.events || []);
-      renderMk(d.marketingRequests || []);
-    })
-    .catch(() => { document.getElementById('lastUpdated').textContent = 'Could not load data'; });
+  (function init() {
+    const ts = new Date(DATA.lastUpdated);
+    document.getElementById('lastUpdated').textContent =
+      'Updated ' + ts.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}) +
+      ' at ' + ts.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',hour12:true});
+    renderTx(DATA.transactions);
+    renderEv(DATA.events);
+    renderMk(DATA.marketingRequests);
+  })();
 </script>
 </body>
 </html>
