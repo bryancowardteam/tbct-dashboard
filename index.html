@@ -4,6 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>TBCT Command Center</title>
+  <meta name="description" content="The Bryan Coward Team Command Center — live view of active transactions, upcoming events, and marketing requests.">
+  <meta property="og:title" content="TBCT Command Center">
+  <meta property="og:description" content="The Bryan Coward Team Command Center — live view of active transactions, upcoming events, and marketing requests.">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/png" href="tbct-logo.png">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -16,8 +21,21 @@
       --muted: #6b7280;
       --border: #dde1e7;
     }
+
+    /* STALE BANNER */
+    #staleBanner {
+      display: none;
+      background: #92400e;
+      color: #fff;
+      text-align: center;
+      padding: 9px 20px;
+      font-size: 12px;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+    }
+
     body { background: var(--bg); color: var(--text); font-family: 'Poppins', sans-serif; font-weight: 300; min-height: 100vh; }
-    .logo-text { color: #fff; font-size: 15px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; font-family: 'Poppins', sans-serif; }
 
     /* HEADER */
     header { background: var(--navy); padding: 20px 40px; display: flex; align-items: center; justify-content: space-between; }
@@ -128,8 +146,10 @@
 </head>
 <body>
 
+<div id="staleBanner">&#9888; Dashboard data may be outdated &mdash; last refresh was more than 24 hours ago. The scheduled task may need attention.</div>
+
 <header>
-  <div class="logo-text">THE BRYAN COWARD TEAM</div>
+  <img src="BryanCoward_Logo_Ver_White.png" class="logo-img" alt="The Bryan Coward Team" />
   <div class="header-right">
     <div class="header-title">Command Center</div>
     <div class="last-updated" id="lastUpdated"></div>
@@ -189,7 +209,7 @@
 </main>
 
 <script>
-  // DATA embedded directly -- no fetch() dependency
+  // DATA embedded directly -- fallback if fetch() fails
   const DATA = {
     lastUpdated: "2026-05-26T08:00:00",
     transactions: [
@@ -334,12 +354,17 @@
       </div>`).join('');
   }
 
-  // Fetch live data.json, fall back to embedded DATA if unavailable
   function runDashboard(data) {
-    const ts = new Date(data.lastUpdated);
+    // Stale data check -- warn if last update was more than 24 hours ago
+    const lastUpdated = new Date(data.lastUpdated);
+    const hoursSince = (Date.now() - lastUpdated.getTime()) / (1000 * 60 * 60);
+    if (hoursSince > 24) {
+      document.getElementById('staleBanner').style.display = 'block';
+    }
+
     document.getElementById('lastUpdated').textContent =
-      'Updated ' + ts.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}) +
-      ' at ' + ts.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',hour12:true});
+      'Updated ' + lastUpdated.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}) +
+      ' at ' + lastUpdated.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',hour12:true});
     renderTx(data.transactions);
     renderEv(data.events);
     renderMk(data.marketingRequests);
@@ -349,7 +374,7 @@
     fetch('data.json?v=' + Date.now())
       .then(r => r.ok ? r.json() : Promise.reject('fetch failed'))
       .then(data => runDashboard(data))
-      .catch(() => runDashboard(DATA)); // fallback to embedded
+      .catch(() => runDashboard(DATA));
   })();
 </script>
 </body>
