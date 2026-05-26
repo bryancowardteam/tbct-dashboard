@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 338 188" width="338" height="188">
+  <rect x="10" y="10" width="318" height="168" fill="none" stroke="white" stroke-width="2"/>
+  <rect x="16" y="16" width="306" height="156" fill="none" stroke="white" stroke-width="2"/>
+  <text x="169" y="52" font-family="'Lato', 'Helvetica Neue', Arial, sans-serif" font-size="18" font-weight="300" letter-spacing="6" fill="white" text-anchor="middle">THE</text>
+  <text x="169" y="92" font-family="'Lato', 'Helvetica Neue', Arial, sans-serif" font-size="40" font-weight="400" letter-spacing="4" fill="white" text-anchor="middle">BRYAN</text>
+  <line x1="49" y1="104" x2="289" y2="104" stroke="white" stroke-width="1.5"/>
+  <text x="169" y="136" font-family="'Lato', 'Helvetica Neue', Arial, sans-serif" font-size="40" font-weight="400" letter-spacing="4" fill="white" text-anchor="middle">COWARD</text>
+  <text x="169" y="161" font-family="'Lato', 'Helvetica Neue', Arial, sans-serif" font-size="18" font-weight="300" letter-spacing="6" fill="white" text-anchor="middle">TEAM</text>
+</svg>
