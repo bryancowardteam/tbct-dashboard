@@ -334,14 +334,22 @@
       </div>`).join('');
   }
 
-  (function init() {
-    const ts = new Date(DATA.lastUpdated);
+  // Fetch live data.json, fall back to embedded DATA if unavailable
+  function runDashboard(data) {
+    const ts = new Date(data.lastUpdated);
     document.getElementById('lastUpdated').textContent =
       'Updated ' + ts.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}) +
       ' at ' + ts.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',hour12:true});
-    renderTx(DATA.transactions);
-    renderEv(DATA.events);
-    renderMk(DATA.marketingRequests);
+    renderTx(data.transactions);
+    renderEv(data.events);
+    renderMk(data.marketingRequests);
+  }
+
+  (function init() {
+    fetch('data.json?v=' + Date.now())
+      .then(r => r.ok ? r.json() : Promise.reject('fetch failed'))
+      .then(data => runDashboard(data))
+      .catch(() => runDashboard(DATA)); // fallback to embedded
   })();
 </script>
 </body>
