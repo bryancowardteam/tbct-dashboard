@@ -93,6 +93,15 @@
     .badge-office-exclusive { background: #fff7ed; color: #9a3412; border: 1px solid #fed7aa; }
     .card-price { font-size: 20px; font-weight: 600; margin: 10px 0 6px; color: var(--navy); }
     .card-meta { font-size: 12px; color: var(--muted); line-height: 1.7; }
+
+    /* URGENCY CHIP */
+    .urgency-chip { display: inline-flex; align-items: center; gap: 5px; border-radius: 4px; padding: 3px 9px; font-size: 10px; font-weight: 500; margin-top: 10px; }
+    .urgency-label { letter-spacing: 0.06em; text-transform: uppercase; opacity: 0.85; }
+    .urgency-days { font-weight: 700; }
+    .urgency-critical { background: #fee2e2; color: #991b1b; border: 1px solid #fecaca; }
+    .urgency-soon { background: #fef9c3; color: #854d0e; border: 1px solid #fef08a; }
+    .urgency-far { background: #dcfce7; color: #166534; border: 1px solid #bbf7d0; }
+
     .expand-area { margin-top: 14px; border-top: 1px solid var(--border); padding-top: 14px; display: none; }
     .card.expanded .expand-area { display: block; }
     .expand-row { display: flex; gap: 8px; margin-bottom: 5px; font-size: 12px; }
@@ -128,6 +137,22 @@
     .badge-review { background: #fef9c3; color: #854d0e; border: 1px solid #fef08a; }
     .mk-notes { font-size: 12px; color: var(--muted); line-height: 1.7; display: none; margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border); }
     .mk-card.expanded .mk-notes { display: block; }
+
+    /* HUDDLE */
+    .huddle-list { display: flex; flex-direction: column; gap: 14px; }
+    .huddle-card { background: var(--white); border: 1px solid var(--border); border-radius: 6px; padding: 22px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+    .huddle-card.today { border-left: 3px solid var(--navy); }
+    .huddle-date-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+    .huddle-date-label { font-size: 13px; font-weight: 600; color: var(--navy); letter-spacing: 0.04em; }
+    .huddle-date-sub { font-size: 11px; color: var(--muted); }
+    .huddle-section { margin-bottom: 14px; }
+    .huddle-section:last-child { margin-bottom: 0; }
+    .huddle-section-title { font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+    .huddle-item { display: flex; align-items: flex-start; gap: 8px; padding: 6px 0; border-bottom: 1px solid var(--border); font-size: 13px; color: var(--text); line-height: 1.5; }
+    .huddle-item:last-child { border-bottom: none; }
+    .huddle-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--navy); flex-shrink: 0; margin-top: 5px; }
+    .huddle-open { margin-top: 14px; padding: 10px 14px; background: #fef9c3; border: 1px solid #fef08a; border-radius: 4px; font-size: 12px; color: #854d0e; }
+    .huddle-open-label { font-weight: 600; margin-right: 4px; }
 
     /* EMPTY */
     .empty { text-align: center; padding: 60px 20px; color: var(--muted); font-size: 13px; letter-spacing: 0.05em; }
@@ -165,6 +190,9 @@
   </button>
   <button class="tab-btn" data-tab="marketing" onclick="switchTab(this)">
     Marketing <span class="tab-count" id="mkCount">-</span>
+  </button>
+  <button class="tab-btn" data-tab="huddle" onclick="switchTab(this)">
+    Huddle <span class="tab-count" id="hdCount">-</span>
   </button>
 </nav>
 
@@ -206,10 +234,14 @@
     </div>
     <div id="mkList"></div>
   </div>
+
+  <!-- HUDDLE -->
+  <div id="pane-huddle" class="tab-pane">
+    <div class="huddle-list" id="hdList"></div>
+  </div>
 </main>
 
 <script>
-  // DATA embedded directly -- fallback if fetch() fails
   const DATA = {
     lastUpdated: "2026-05-26T08:00:00",
     transactions: [
@@ -237,7 +269,8 @@
       { title: "New Shorter Pre-Listing Pack", status: "in-progress", statusLabel: "In Progress", requestedBy: "Bryan", date: "May 18, 2026", notes: "Bryan asked Sarah to create a shorter Pre-Listing Pack based on the 2026 copy. Sarah confirmed." },
       { title: "Recreate Graphic with TBCT Logo", status: "in-progress", statusLabel: "In Progress", requestedBy: "Bryan", date: "May 15, 2026", notes: "Bryan shared a screenshot and asked Sarah to recreate it with the TBCT logo. Sarah confirmed, no delivery shown yet." },
       { title: "Park Bench Sign + WOW Ad Designs", status: "complete", statusLabel: "Complete", requestedBy: "Bryan", date: "May 14, 2026", notes: "Sarah delivered Park Bench Sign, Ice Cream Social materials, Allora May Postcard, WOW Ad, and WOW Ad 450x450px. Bryan approved." }
-    ]
+    ],
+    huddle: []
   };
 
   function switchTab(btn) {
@@ -289,6 +322,22 @@
     return 'badge-pending';
   }
 
+  function daysUntil(dateStr) {
+    if (!dateStr) return null;
+    const diff = new Date(dateStr + 'T12:00:00') - new Date();
+    return Math.ceil(diff / (1000 * 60 * 60 * 24));
+  }
+
+  function urgencyChip(dateStr, label) {
+    const days = daysUntil(dateStr);
+    if (days === null) return '';
+    let cls = 'urgency-far';
+    if (days <= 7) cls = 'urgency-critical';
+    else if (days <= 14) cls = 'urgency-soon';
+    const txt = days <= 0 ? 'Overdue' : days === 1 ? 'Tomorrow' : days + 'd';
+    return '<div class="urgency-chip ' + cls + '"><span class="urgency-label">' + label + '</span><span class="urgency-days">' + txt + '</span></div>';
+  }
+
   function renderTx(txs) {
     document.getElementById('txCount').textContent = txs.length;
     const listings = txs.filter(t => t.type === 'Listing').length;
@@ -299,75 +348,113 @@
       stat(txs.length,'Total') + stat(listings,'Listings') +
       stat(buyers,'Buyers') + stat(active,'Active') +
       stat(vol ? fmtPrice(vol) : 'N/A','Volume Known');
-    document.getElementById('txCards').innerHTML = txs.map(t => `
-      <div class="card tx-card" data-type="${t.type}" data-status="${t.status}" onclick="toggle(this)">
-        <div class="card-header">
-          <div><div class="card-address">${t.address}</div>${t.city ? `<div class="card-city">${t.city}</div>` : ''}</div>
-          <div class="card-badges">
-            <span class="badge badge-${t.type.toLowerCase()}">${t.type}</span>
-            <span class="badge ${badgeCls(t.status)}">${t.status}</span>
-          </div>
-        </div>
-        ${t.price ? `<div class="card-price">${fmtPrice(t.price)}</div>` : ''}
-        <div class="card-meta">${[t.details, t.clients ? 'Client: ' + t.clients : ''].filter(Boolean).join('<br>')}</div>
-        <div class="expand-area">
-          ${row('MLS',t.mls)}${row('Clients',t.clients)}${row('Phone',t.phone)}
-          ${row('Email',t.email)}${row('Close Date',fmtDate(t.closeDate))}
-          ${row('Listing Exp',fmtDate(t.expiry))}${row('Lender',t.lender)}
-          ${row('Title',t.title)}
-          ${t.trelloUrl ? `<a class="expand-link" href="${t.trelloUrl}" target="_blank">View in Trello &rarr;</a>` : ''}
-        </div>
-        <div class="chevron">&#9662;</div>
-      </div>`).join('');
+    document.getElementById('txCards').innerHTML = txs.map(t => {
+      const keyDate = t.type === 'Buyer' ? t.closeDate : t.expiry;
+      const keyLabel = t.type === 'Buyer' ? 'Close' : 'Expires';
+      return '<div class="card tx-card" data-type="' + t.type + '" data-status="' + t.status + '" onclick="toggle(this)">' +
+        '<div class="card-header">' +
+          '<div><div class="card-address">' + t.address + '</div>' + (t.city ? '<div class="card-city">' + t.city + '</div>' : '') + '</div>' +
+          '<div class="card-badges">' +
+            '<span class="badge badge-' + t.type.toLowerCase() + '">' + t.type + '</span>' +
+            '<span class="badge ' + badgeCls(t.status) + '">' + t.status + '</span>' +
+          '</div>' +
+        '</div>' +
+        (t.price ? '<div class="card-price">' + fmtPrice(t.price) + '</div>' : '') +
+        '<div class="card-meta">' + [t.details, t.clients ? 'Client: ' + t.clients : ''].filter(Boolean).join('<br>') + '</div>' +
+        (keyDate ? urgencyChip(keyDate, keyLabel) : '') +
+        '<div class="expand-area">' +
+          row('MLS', t.mls) + row('Clients', t.clients) + row('Phone', t.phone) +
+          row('Email', t.email) + row('Close Date', fmtDate(t.closeDate)) +
+          row('Listing Exp', fmtDate(t.expiry)) + row('Lender', t.lender) +
+          row('Title', t.title) +
+          (t.trelloUrl ? '<a class="expand-link" href="' + t.trelloUrl + '" target="_blank">View in Trello &rarr;</a>' : '') +
+        '</div>' +
+        '<div class="chevron">&#9662;</div>' +
+      '</div>';
+    }).join('');
   }
-  function stat(v,l) { return `<div class="stat"><div class="stat-value">${v}</div><div class="stat-label">${l}</div></div>`; }
-  function row(lbl,val) { return val ? `<div class="expand-row"><span class="expand-lbl">${lbl}</span><span class="expand-val">${val}</span></div>` : ''; }
+
+  function stat(v,l) { return '<div class="stat"><div class="stat-value">' + v + '</div><div class="stat-label">' + l + '</div></div>'; }
+  function row(lbl,val) { return val ? '<div class="expand-row"><span class="expand-lbl">' + lbl + '</span><span class="expand-val">' + val + '</span></div>' : ''; }
 
   function renderEv(evs) {
     document.getElementById('evCount').textContent = evs.length;
     document.getElementById('evList').innerHTML = evs.length ? evs.map(e => {
       const d = new Date(e.start + 'T12:00:00');
-      return `<div class="ev-card ev-card" data-date="${e.start}">
-        <div class="ev-date">
-          <div class="ev-month">${d.toLocaleString('en-US',{month:'short'}).toUpperCase()}</div>
-          <div class="ev-day">${d.getDate()}</div>
-        </div>
-        <div class="ev-info">
-          <div class="ev-title">${e.title}</div>
-          <div class="ev-time">${e.time}</div>
-          ${e.location ? `<div class="ev-loc">&#128205; ${e.location}</div>` : ''}
-        </div>
-      </div>`;
+      return '<div class="ev-card ev-card" data-date="' + e.start + '">' +
+        '<div class="ev-date">' +
+          '<div class="ev-month">' + d.toLocaleString('en-US',{month:'short'}).toUpperCase() + '</div>' +
+          '<div class="ev-day">' + d.getDate() + '</div>' +
+        '</div>' +
+        '<div class="ev-info">' +
+          '<div class="ev-title">' + e.title + '</div>' +
+          '<div class="ev-time">' + e.time + '</div>' +
+          (e.location ? '<div class="ev-loc">&#128205; ' + e.location + '</div>' : '') +
+        '</div>' +
+      '</div>';
     }).join('') : '<div class="empty">No upcoming events</div>';
   }
 
   function renderMk(mks) {
     document.getElementById('mkCount').textContent = mks.length;
-    document.getElementById('mkList').innerHTML = mks.map(m => `
-      <div class="mk-card mk-card" data-status="${m.status}" onclick="toggle(this)">
-        <div class="mk-header">
-          <div class="mk-title">${m.title}</div>
-          <span class="badge badge-${m.status}">${m.statusLabel}</span>
-        </div>
-        <div class="mk-meta">${m.date} &middot; Requested by ${m.requestedBy}</div>
-        ${m.notes ? `<div class="mk-notes">${m.notes}</div>` : ''}
-      </div>`).join('');
+    document.getElementById('mkList').innerHTML = mks.map(m =>
+      '<div class="mk-card mk-card" data-status="' + m.status + '" onclick="toggle(this)">' +
+        '<div class="mk-header">' +
+          '<div class="mk-title">' + m.title + '</div>' +
+          '<span class="badge badge-' + m.status + '">' + m.statusLabel + '</span>' +
+        '</div>' +
+        '<div class="mk-meta">' + m.date + ' &middot; Requested by ' + m.requestedBy + '</div>' +
+        (m.notes ? '<div class="mk-notes">' + m.notes + '</div>' : '') +
+      '</div>'
+    ).join('');
+  }
+
+  function renderHuddle(items) {
+    const today = new Date().toISOString().slice(0, 10);
+    document.getElementById('hdCount').textContent = items.length;
+    if (!items.length) {
+      document.getElementById('hdList').innerHTML = '<div class="empty">No huddle notes yet — check back after the morning stand-up.</div>';
+      return;
+    }
+    document.getElementById('hdList').innerHTML = items.map(h => {
+      const d = new Date(h.date + 'T12:00:00');
+      const isToday = h.date === today;
+      const dateLabel = isToday ? 'Today' : d.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
+      const dateSub = isToday ? d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' }) : '';
+      const sections = {};
+      (h.items || []).forEach(item => {
+        const cat = item.category || 'General';
+        if (!sections[cat]) sections[cat] = [];
+        sections[cat].push(item.note);
+      });
+      const sectionsHtml = Object.entries(sections).map(([cat, notes]) =>
+        '<div class="huddle-section">' +
+          '<div class="huddle-section-title">' + cat + '</div>' +
+          notes.map(n => '<div class="huddle-item"><div class="huddle-dot"></div><div>' + n + '</div></div>').join('') +
+        '</div>'
+      ).join('');
+      return '<div class="huddle-card' + (isToday ? ' today' : '') + '">' +
+        '<div class="huddle-date-row">' +
+          '<div class="huddle-date-label">' + dateLabel + '</div>' +
+          (dateSub ? '<div class="huddle-date-sub">' + dateSub + '</div>' : '') +
+        '</div>' +
+        sectionsHtml +
+        (h.openItems ? '<div class="huddle-open"><span class="huddle-open-label">Open:</span>' + h.openItems + '</div>' : '') +
+      '</div>';
+    }).join('');
   }
 
   function runDashboard(data) {
-    // Stale data check -- warn if last update was more than 24 hours ago
     const lastUpdated = new Date(data.lastUpdated);
     const hoursSince = (Date.now() - lastUpdated.getTime()) / (1000 * 60 * 60);
-    if (hoursSince > 24) {
-      document.getElementById('staleBanner').style.display = 'block';
-    }
-
+    if (hoursSince > 24) document.getElementById('staleBanner').style.display = 'block';
     document.getElementById('lastUpdated').textContent =
       'Updated ' + lastUpdated.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}) +
       ' at ' + lastUpdated.toLocaleTimeString('en-US',{hour:'numeric',minute:'2-digit',hour12:true});
     renderTx(data.transactions);
     renderEv(data.events);
     renderMk(data.marketingRequests);
+    renderHuddle(data.huddle || []);
   }
 
   (function init() {
