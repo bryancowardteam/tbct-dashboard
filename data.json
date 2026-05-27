@@ -121,5 +121,17 @@
     { "title": "New Shorter Pre-Listing Pack", "status": "in-progress", "statusLabel": "In Progress", "requestedBy": "Bryan", "date": "May 18, 2026", "notes": "Bryan asked Sarah to create a shorter Pre-Listing Pack based on the 2026 copy. Sarah confirmed." },
     { "title": "Recreate Graphic with TBCT Logo", "status": "in-progress", "statusLabel": "In Progress", "requestedBy": "Bryan", "date": "May 15, 2026", "notes": "Bryan shared a screenshot and asked Sarah to recreate it with the TBCT logo. Sarah confirmed, no delivery shown yet." },
     { "title": "Park Bench Sign + WOW Ad Designs", "status": "complete", "statusLabel": "Complete", "requestedBy": "Bryan", "date": "May 14, 2026", "notes": "Sarah delivered Park Bench Sign, Ice Cream Social materials, Allora May Postcard, WOW Ad, and WOW Ad 450x450px. Bryan approved." }
+  ],
+  "huddle": [
+    {
+      "date": "2026-05-27",
+      "items": [
+        { "category": "Closings This Week", "note": "6617 Thoroughbred Loop and 9170 Lakechase Island Way both close Friday, May 29." },
+        { "category": "Coming Up Next Week", "note": "6426 Grapewood Rd closes Monday, June 2. Confirm all docs with Brian McGlone." },
+        { "category": "Marketing", "note": "Ice Cream Social flip side still in progress. Bryan to confirm final version with Sarah." },
+        { "category": "Open Item", "note": "Intro slide for Cancels/Expired presentation -- follow up with Sarah on status." }
+      ],
+      "openItems": "Ice Cream Social flip side; Intro slide for Cancels/Expired presentation"
+    }
   ]
 }
