@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-27T01:46:59",
+  "lastUpdated": "2026-05-27T10:07:00",
   "transactions": [
     {
       "address": "7327 Winchester Dr",
@@ -106,6 +106,12 @@
   ],
   "events": [
     {
+      "title": "Get back to Curtis",
+      "start": "2026-05-27",
+      "time": "9:00 AM - 9:15 AM",
+      "location": ""
+    },
+    {
       "title": "Bryan Coward & Matt Palombo",
       "start": "2026-05-27",
       "time": "10:00 AM - 10:30 AM",
@@ -188,12 +194,6 @@
       "start": "2026-05-29",
       "time": "7:30 AM - 9:00 AM",
       "location": "Aston Gardens At Tampa Bay"
-    },
-    {
-      "title": "Go to Golf Course",
-      "start": "2026-05-29",
-      "time": "9:00 AM - 10:00 AM",
-      "location": ""
     }
   ],
   "marketingRequests": [
