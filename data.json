@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-12T08:00:00",
+  "lastUpdated": "2026-06-12T09:30:00",
   "transactions": [
     {
       "address": "7327 Winchester Dr",
@@ -229,6 +229,16 @@
     }
   ],
   "huddle": [
+    {
+      "date": "2026-06-12",
+      "items": [
+        {"category": "Attendees", "note": "Bryan Coward, EJ Gaba, Sarah Bunag"},
+        {"category": "Overview", "note": "Team reviewed active listing updates for Normandy and Donato 8216, discussed social media tasks including a pending Instagram reel and YouTube, and EJ previewed a new contact tracking spreadsheet built with Rebecca. Notion organization, the Golden Letters tracker, and Lake Chase closing progress were also covered."},
+        {"category": "Discussion Topics", "note": "Sign issue resolved for 8036 Praise Dr; YouTube video posted and niche.com Instagram reel pending; Donato 8216 - client discussing listing strategy with wife; Normandy listing - staging pushed to June 30, follow-up needed Mon/Tue; EJ contact tracker spreadsheet demo with Rebecca; Notion consolidation - Top 150 database, monthly hot seller list, active leads tracker cleanup; Golden Letters tracker for Tracy in Notion; DocuSign file downloads; Lake Chase closing on track, possibly earlier than June 19; Sarah pre-listing packet in progress"},
+        {"category": "Action Items", "note": "EJ - Follow up on Normandy listing Monday or Tuesday; EJ - Update Brivity with Normandy staging date change to June 30; EJ - Attach property disclosure, flood disclosure, and age of systems to MLS drafts; EJ - Add Dropbox raw video folder link to Notion quick links; EJ - Look into Golden Letters spreadsheet and reach out to Tracy about tracking; EJ - Complete contact tracker by midday today; EJ - Look into linking Top 150 database to Hot Seller List in Notion; Sarah - Post niche.com Instagram reel using lead magnet; Bryan - Share Dropbox raw video folder link in Slack"}
+      ],
+      "openItems": "EJ - Follow up on Normandy Mon/Tue; EJ - Update Brivity staging to June 30; EJ - Attach MLS draft documents; EJ - Add Dropbox link to Notion; EJ - Contact Tracy re Golden Letters; EJ - Complete contact tracker by midday; EJ - Link Top 150 to Hot Seller List; Sarah - Post Instagram reel; Bryan - Share Dropbox link in Slack"
+    },
     {
       "date": "2026-06-11",
       "items": [
