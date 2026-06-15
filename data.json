@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-15T08:00:00",
+  "lastUpdated": "2026-06-15T09:30:00",
   "transactions": [
     {
       "address": "7327 Winchester Dr",
@@ -42,7 +42,7 @@
       "status": "Pending",
       "price": 348000,
       "mls": "TB8509727",
-      "details": "2 Bed / 1 Ba | Single Family Residence",
+      "details": "2 Bed / 2 Ba | Single Family Residence",
       "clients": "Sieara Alotaibi",
       "phone": "(727) 276-3004",
       "email": "siearaamira@gmail.com",
@@ -230,6 +230,16 @@
   ],
   "huddle": [
     {
+      "date": "2026-06-15",
+      "items": [
+        {"category": "Attendees", "note": "Bryan Coward, EJ Gaba, Sarah Jessa Bunag"},
+        {"category": "Overview", "note": "Team covered active listing prep for Gingerwood and Normandy, including rescheduling staging and photography. Discussion also included Notion Command Center improvements, KW Canva account setup for property brochures, DocuSign template downloads, WBN promotion for Thursday's event, and Bryan's new farming section in Notion."},
+        {"category": "Discussion Topics", "note": "Gingerwood listing - staging Monday, cleaning Tue/Wed, photos Thu/Fri; Normandy listing - Bryan getting keys today and coordinating cleaning, staging, and photos; Notion Command Center - syncing pre-listing and transactions hub, adding Coming Soon status; KW Canva account (canva.kw.com) - property brochure templates introduced; DocuSign blank forms downloaded, considering upload to Dropbox or Drive; WBN post and email for Thursday event with 4 remaining founder spots; Opus Clip discussion postponed to Friday; Google Sheet tracker (2019-present) to migrate to Notion with weekly sync; Bryan's farming section in Notion now shared with EJ"},
+        {"category": "Action Items", "note": "EJ - Schedule Gingerwood photos for Thursday or Friday; Bryan - Schedule Gingerwood staging Monday and cleaning Tuesday or Wednesday; Bryan - Schedule a cleaner for Gingerwood; Bryan - Get Normandy keys today, coordinate cleaning, staging, and photos; EJ - Update Notion to add Coming Soon status and sync pre-listing hub into transactions view; Sarah - Explore KW Canva account (canva.kw.com) for property brochure templates; EJ - Upload blank DocuSign forms to Dropbox or Drive for team access; Sarah - Finalize pre-listing packet templates and Wednesday video today; Sarah - Create WBN post and email for Thursday event, mention 4 remaining founder spots; EJ - Move Opus Clip discussion to Friday; EJ - Migrate Google Sheet tracker (2019-present) to Notion with weekly sync cadence"}
+      ],
+      "openItems": "EJ - Schedule Gingerwood photos Thu/Fri; Bryan - Schedule Gingerwood staging Mon and cleaning Tue/Wed; Bryan - Schedule Gingerwood cleaner; Bryan - Get Normandy keys and coordinate prep; EJ - Update Notion Coming Soon status and sync hubs; Sarah - Explore KW Canva for brochures; EJ - Upload blank DocuSign forms to shared drive; Sarah - Finalize pre-listing packets and Wednesday video; Sarah - WBN post and email for Thursday (4 founder spots remaining); EJ - Move Opus Clip to Friday; EJ - Google Sheet to Notion migration (weekly sync)"
+    },
+    {
       "date": "2026-06-12",
       "items": [
         {"category": "Attendees", "note": "Bryan Coward, EJ Gaba, Sarah Bunag"},
@@ -268,16 +278,6 @@
         {"category": "Action Items", "note": "Complete MLS input for Ginger Ruder listing (EJ); Add Morris listing address and update referral partner in Brivity (Bryan/EJ); Send Lake Michigan Credit Union reminder (Sarah); Add Effie's upcoming events slides to marketing materials (Sarah); Compile Q1+Q2 VIP Client contacts for event calling list (EJ); Create CrossFit Westchase Viral Run Notion page (EJ); Record Instagram Reel with offer lead magnet (Bryan); Schedule standup for 8:30 AM on June 10 (EJ)"}
       ],
       "openItems": "Complete MLS input for Ginger Ruder (EJ); Add Morris listing address in Brivity (Bryan); Send LMCU reminder (Sarah); Add Effie event slides (Sarah); Compile VIP Q1+Q2 contacts (EJ); Create CrossFit Westchase Notion page (EJ); Record IG Reel offer video (Bryan); Schedule June 10 standup (EJ)"
-    },
-    {
-      "date": "2026-06-02",
-      "items": [
-        {"category": "Attendees", "note": "Bryan Coward, EJ Gaba"},
-        {"category": "Overview", "note": "Bryan and EJ reviewed the Notion workspace setup (Command Center, Transactions Hub, Listings Hub) and noted a display discrepancy on Bryan's end. They covered new listings for Stuart and Jen (Portsdale and Normandy Trace), daily client updates, referral tracking from closed transactions, and priorities including photos, YouTube video, and Westchase market stats."},
-        {"category": "Discussion Topics", "note": "Notion workspace layout - Transactions Hub and Listings Hub display; Bryan's view not matching EJ's; Coming Soon MLS feature - 8036 Praise Drive to be listed as coming soon; New listings - Stuart and Jen signed listing agreements for Portsdale and Normandy Trace; staging and photo scheduling; Client updates - Cynthia Harvey (showing June 25), Jill LaFond (not active buyer), Grapewood Rd closing today at 1 PM; Closed transaction referral tracking - building scorecard from Brivity to identify top referrers; Claude AI workflow and scheduled tasks; YouTube video due by tomorrow; Upcoming events - fall family photo shoot and Westchase Allura Ball ice cream truck; Westchase micro market stats to be added to existing sheets"},
-        {"category": "Action Items", "note": "Bryan - Visit Portsdale to get key and assess cleaning needs; EJ - Confirm staging date for Portsdale and schedule photos for the following day; EJ - Order BOST photos for Gingerwood; EJ - Add Ice Cream Social Response Form and other key links to Leads and Referrals Hub in Notion; EJ - Investigate why Bryan's Notion view differs from EJ's; Sarah - Complete YouTube video by tomorrow (June 3); EJ - Add micro stats to Westchase market sheets (townhouses/condo/villa, single family, combined)"}
-      ],
-      "openItems": "Bryan - Visit Portsdale for key and cleaner check; EJ - Confirm Portsdale staging date and schedule photos; EJ - Order BOST photos for Gingerwood; EJ - Add links to Leads Hub in Notion; EJ - Fix Bryan Notion view; Sarah - YouTube video by June 3; EJ - Add micro stats to Westchase sheets"
     }
   ]
 }
