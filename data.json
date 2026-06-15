@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-12T09:30:00",
+  "lastUpdated": "2026-06-15T08:00:00",
   "transactions": [
     {
       "address": "7327 Winchester Dr",
@@ -72,21 +72,27 @@
   ],
   "events": [
     {
-      "title": "Disclosure Day",
-      "start": "2026-06-12",
-      "time": "2:30 PM - 5:00 PM",
-      "location": "AMC Woodlands Square 20, 3128 Tampa Rd, Oldsmar, FL 34677"
-    },
-    {
-      "title": "Bowling for Kids Sake",
-      "start": "2026-06-13",
-      "time": "1:00 PM - 4:00 PM",
-      "location": "Pin Chasers, 4847 N Armenia Ave, Tampa, FL 33603"
-    },
-    {
       "title": "411",
       "start": "2026-06-15",
       "time": "8:00 AM - 8:30 AM",
+      "location": null
+    },
+    {
+      "title": "David & Bryan World of Beer",
+      "start": "2026-06-15",
+      "time": "All Day",
+      "location": "World of Beer, 9524 W Linebaugh Ave, Tampa, FL 33626"
+    },
+    {
+      "title": "Follow up with Golf Pro",
+      "start": "2026-06-15",
+      "time": "12:00 PM - 12:30 PM",
+      "location": null
+    },
+    {
+      "title": "You Tube",
+      "start": "2026-06-15",
+      "time": "4:00 PM - 5:00 PM",
       "location": null
     },
     {
@@ -94,12 +100,6 @@
       "start": "2026-06-16",
       "time": "8:30 AM - 10:30 AM",
       "location": null
-    },
-    {
-      "title": "Strategies for Success",
-      "start": "2026-06-16",
-      "time": "12:30 PM - 1:00 PM",
-      "location": "Zoom"
     },
     {
       "title": "Madi's Movement Monthly Social",
@@ -144,12 +144,6 @@
       "location": "Zoom"
     },
     {
-      "title": "Schedule the Open House with HOA for the Moloniares",
-      "start": "2026-06-24",
-      "time": "2:00 PM - 2:30 PM",
-      "location": null
-    },
-    {
       "title": "Cynthia Showings",
       "start": "2026-06-25",
       "time": "1:00 PM - 4:00 PM",
@@ -160,6 +154,12 @@
       "start": "2026-06-26",
       "time": "10:45 AM - 11:45 AM",
       "location": null
+    },
+    {
+      "title": "411",
+      "start": "2026-06-29",
+      "time": "8:00 AM - 8:30 AM",
+      "location": null
     }
   ],
   "marketingRequests": [
@@ -169,7 +169,7 @@
       "statusLabel": "In Progress",
       "requestedBy": "Bryan",
       "date": "Jun 11, 2026",
-      "notes": "Bryan shared a photo and asked Sarah to put it on Slide 2 of the new presentation. No Sarah confirmation yet."
+      "notes": "Bryan shared a photo and asked Sarah to put it on Slide 2 of the new presentation. No explicit Sarah delivery confirmation yet."
     },
     {
       "title": "Send AI Website PPT to Mary Schwegman",
@@ -201,7 +201,7 @@
       "statusLabel": "In Progress",
       "requestedBy": "Bryan",
       "date": "Jun 9, 2026",
-      "notes": "Bryan uploaded Credit Confidence PPT and asked Sarah to add a slide (screenshot shared) after Chris's slide. Sarah acknowledged: 'Got this, will do.'"
+      "notes": "Bryan uploaded Credit Confidence PPT and asked Sarah to add a slide after Chris's slide. Sarah acknowledged: 'Got this, will do.'"
     },
     {
       "title": "Update Slides - Canva Design",
