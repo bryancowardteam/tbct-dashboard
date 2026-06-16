@@ -230,6 +230,16 @@
   ],
   "huddle": [
     {
+      "date": "2026-06-16",
+      "items": [
+        {"category": "Attendees", "note": "Bryan Coward, EJ Gaba, Sarah Bunag"},
+        {"category": "Overview", "note": "Team reviewed the luxury listing swag package plan for $600K+ properties and discussed creating a Brivity auto plan for those items. EJ previewed the Notion Working Properties master database consolidation and Claude Cowork Prompt Center. WBN slideshow presenter changes and name badge logistics were also covered."},
+        {"category": "Discussion Topics", "note": "Stuart's Normandy listing - Bryan picked up keys; Social media follow-back strategy for business profiles with followings; Luxury listing swag package ($600K+) - binder, luxury pamphlet, business cards, water bottles, healthy snacks, with Brivity auto plan; West Park Village Farm auto plan confirmed in Google Doc; Notion Working Properties master database - consolidating all listing and transaction views; KW Command DA tracker - GCI totals and buyer/seller color flags; Listing intake form in Notion Listings Hub; Claude Cowork Prompt Center added to Notion Command Center; WBN slideshow - remove Christopher, add Nico and Dominic as presenters, update founding member labels; WBN name badges - font matching issue with nameguards.com; Age of systems data entry in Notion for pre-listing and coming soon; Upcoming meetings - Cipriani at 11am, 360 check-in at 12pm, Maddie's Movement Monday Social at 5:30pm"},
+        {"category": "Action Items", "note": "EJ - Fill in age of systems data in Notion for pre-listing and coming soon properties; Sarah - Email name badge vendor (nameguards.com) about font matching and ordering; Sarah - Update WBN slideshow (remove Christopher, add Nico and Dominic, update founding member labels); Bryan - Post luxury listing swag details to #listings Slack"}
+      ],
+      "openItems": "EJ - Fill in age of systems in Notion (pre-listing/coming soon); Sarah - Email name badge vendor re: font/ordering; Sarah - Update WBN slideshow (remove Christopher, add Nico/Dominic, update founding member labels); Bryan - Post luxury listing swag to #listings Slack"
+    },
+    {
       "date": "2026-06-15",
       "items": [
         {"category": "Attendees", "note": "Bryan Coward, EJ Gaba, Sarah Jessa Bunag"},
@@ -268,16 +278,6 @@
         {"category": "Action Items", "note": "Circle back on referrals Bryan mentioned (EJ); Start MLS input for Portsdale (EJ); Drop scripts and dialogues into Notion (Bryan); Call Chris for Canva presentation info (Bryan); Work on mailer YouTube video (Bryan); Record Loom video on market data pull process by end of week if time allows (Bryan); Post on WBN Facebook group about tonight's event (Sarah); Send email reminder about tonight's event for registration and headcount (Sarah); Work on Alora and West Park Village mailers once update received (Sarah)"}
       ],
       "openItems": "EJ - circle back on referrals; EJ - MLS input for Portsdale; Bryan - drop scripts into Notion; Bryan - call Chris for Canva presentation; Bryan - mailer YouTube video; Bryan - Loom video for market data pull; Sarah - WBN Facebook post for tonight; Sarah - email reminder for tonight's event; Sarah - Alora and West Park Village mailers"
-    },
-    {
-      "date": "2026-06-08",
-      "items": [
-        {"category": "Attendees", "note": "Bryan Coward, EJ Gaba, Sarah Jessa Bunag"},
-        {"category": "Overview", "note": "Team reviewed active listing preparations for Portsdale, Normandy, and a new mobile home listing for Morris/Ginger Ruder; aligned on buyer consulting activity, event marketing tasks, VIP contact list compilation, and upcoming social media content."},
-        {"category": "Discussion Topics", "note": "EJ's recent move and temporary internet setup; EBBA buyer agreement with Stacey and Rachel at 9:30 AM; new mobile home listing intake for Morris/Ginger Ruder in Brivity; photography booked for 6004 Portsdale Place with Matt Miller (interior/exterior, staging June 15, photos June 16); Normandy listing photo order on hold pending seller move-out; Winchester listing - no open house attendance, buyer prospect being pursued; YouTube backlog - Sarah has 'What 500K Can Get You?' ready to post; Ice Cream Social Facebook post went live again on West Park Village group; Lake Michigan Credit Union reminder and slides from Chris pending; Effie's upcoming events for marketing slides; VIP Client Spreadsheet Q1+Q2 compilation for event calling; CrossFit Westchase Viral Run Notion page; Closed Referral Log build-out in Notion; Instagram Reels with offer lead magnet; standup rescheduled to 8:30 AM on June 10"},
-        {"category": "Action Items", "note": "Complete MLS input for Ginger Ruder listing (EJ); Add Morris listing address and update referral partner in Brivity (Bryan/EJ); Send Lake Michigan Credit Union reminder (Sarah); Add Effie's upcoming events slides to marketing materials (Sarah); Compile Q1+Q2 VIP Client contacts for event calling list (EJ); Create CrossFit Westchase Viral Run Notion page (EJ); Record Instagram Reel with offer lead magnet (Bryan); Schedule standup for 8:30 AM on June 10 (EJ)"}
-      ],
-      "openItems": "Complete MLS input for Ginger Ruder (EJ); Add Morris listing address in Brivity (Bryan); Send LMCU reminder (Sarah); Add Effie event slides (Sarah); Compile VIP Q1+Q2 contacts (EJ); Create CrossFit Westchase Notion page (EJ); Record IG Reel offer video (Bryan); Schedule June 10 standup (EJ)"
     }
   ]
 }
