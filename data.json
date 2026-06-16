@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-06-15T09:30:00",
+  "lastUpdated": "2026-06-16T08:00:00",
   "transactions": [
     {
       "address": "7327 Winchester Dr",
@@ -42,7 +42,7 @@
       "status": "Pending",
       "price": 348000,
       "mls": "TB8509727",
-      "details": "2 Bed / 2 Ba | Single Family Residence",
+      "details": "2 Bed / 1 Ba | Single Family Residence",
       "clients": "Sieara Alotaibi",
       "phone": "(727) 276-3004",
       "email": "siearaamira@gmail.com",
@@ -72,33 +72,15 @@
   ],
   "events": [
     {
-      "title": "411",
-      "start": "2026-06-15",
-      "time": "8:00 AM - 8:30 AM",
-      "location": null
-    },
-    {
-      "title": "David & Bryan World of Beer",
-      "start": "2026-06-15",
-      "time": "All Day",
-      "location": "World of Beer, 9524 W Linebaugh Ave, Tampa, FL 33626"
-    },
-    {
-      "title": "Follow up with Golf Pro",
-      "start": "2026-06-15",
-      "time": "12:00 PM - 12:30 PM",
-      "location": null
-    },
-    {
-      "title": "You Tube",
-      "start": "2026-06-15",
-      "time": "4:00 PM - 5:00 PM",
-      "location": null
-    },
-    {
       "title": "C3PO",
       "start": "2026-06-16",
       "time": "8:30 AM - 10:30 AM",
+      "location": null
+    },
+    {
+      "title": "Watch Take More Listings",
+      "start": "2026-06-16",
+      "time": "1:00 PM - 2:00 PM",
       "location": null
     },
     {
@@ -112,6 +94,12 @@
       "start": "2026-06-17",
       "time": "2:00 PM - 3:00 PM",
       "location": "Zoom"
+    },
+    {
+      "title": "Bryan & Chris 1:1",
+      "start": "2026-06-17",
+      "time": "3:30 PM - 4:30 PM",
+      "location": "Raining Berries Westchase, 10633 Sheldon Rd"
     },
     {
       "title": "Conference Room 90 Minutes at Raining Berries Westchase",
@@ -160,9 +148,37 @@
       "start": "2026-06-29",
       "time": "8:00 AM - 8:30 AM",
       "location": null
+    },
+    {
+      "title": "C3PO",
+      "start": "2026-06-30",
+      "time": "8:30 AM - 10:30 AM",
+      "location": null
+    },
+    {
+      "title": "Strategies for Success",
+      "start": "2026-06-30",
+      "time": "12:30 PM - 1:00 PM",
+      "location": "Zoom"
     }
   ],
   "marketingRequests": [
+    {
+      "title": "TBCT Events Google Form",
+      "status": "in-progress",
+      "statusLabel": "In Progress",
+      "requestedBy": "Bryan",
+      "date": "Jun 15, 2026",
+      "notes": "Bryan asked Sarah to create a Google Form for TBCT Events after the first event flyer is made. First question should be Yes/No that attendees will answer yes to. Sarah acknowledged: 'These are noted, will do.'"
+    },
+    {
+      "title": "Sundaes On Sunday Event Flyer",
+      "status": "in-progress",
+      "statusLabel": "In Progress",
+      "requestedBy": "Bryan",
+      "date": "Jun 15, 2026",
+      "notes": "Bryan requested the first TBCT event flyer for 'Sundaes On Sunday' on Sunday July 26th. Include: Save the Date, Free Ice Cream, Win Great Prizes. Keep it basic. Sarah acknowledged: 'Got this, will do.'"
+    },
     {
       "title": "Add Image to Slide 2 - New Presentation",
       "status": "in-progress",
@@ -202,22 +218,6 @@
       "requestedBy": "Bryan",
       "date": "Jun 9, 2026",
       "notes": "Bryan uploaded Credit Confidence PPT and asked Sarah to add a slide after Chris's slide. Sarah acknowledged: 'Got this, will do.'"
-    },
-    {
-      "title": "Update Slides - Canva Design",
-      "status": "in-progress",
-      "statusLabel": "In Progress",
-      "requestedBy": "Bryan",
-      "date": "Jun 8, 2026",
-      "notes": "Bryan shared a Canva link and asked Sarah to update the slides. Sarah acknowledged: 'Got this, will do.'"
-    },
-    {
-      "title": "Open House Sign - westchaserealtor.com",
-      "status": "in-progress",
-      "statusLabel": "In Progress",
-      "requestedBy": "Bryan",
-      "date": "Jun 1, 2026",
-      "notes": "Bryan requested a new open house sign featuring westchaserealtor.com (marked low priority). Sarah acknowledged: 'Sure, this is noted.'"
     },
     {
       "title": "Open House Assets - 10109 Hayfield Way",
